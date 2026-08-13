@@ -1,0 +1,71 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import JsonLd from '../components/JsonLd.astro';
+import ComingSoon from '../components/ComingSoon.astro';
+import TuitionCard from '../components/TuitionCard.astro';
+import { getCanonicalOrg, tuitionToOffer } from '../lib/schema-mappers';
+
+const entries = await getCollection('tuition');
+const org = await getCanonicalOrg();
+const offers = entries.map((entry) => tuitionToOffer(entry));
+---
+
+<BaseLayout
+  title="Tuition & Fees"
+  description="Tuition and fee information for Wisdom Wealth International School, Trichy — Cambridge curriculum, iPlay/iDiscover/iLead programs."
+>
+  <Fragment slot="head">
+    {offers.map((offer) => <JsonLd data={{ '@context': 'https://schema.org', ...offer }} />)}
+    <JsonLd data={{ '@context': 'https://schema.org', ...org }} />
+  </Fragment>
+
+  <main class="wrap">
+    <p class="mono-label">// tuition & fees</p>
+    <h1>What it costs to join WWIS Trichy</h1>
+
+    {
+      entries.length === 0 ? (
+        <ComingSoon topic="tuition" />
+      ) : (
+        <div class="grid">
+          {entries.map((entry) => (
+            <TuitionCard {...entry.data} />
+          ))}
+        </div>
+      )
+    }
+  </main>
+</BaseLayout>
+
+<style>
+  .wrap {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 100px 24px;
+  }
+
+  h1 {
+    font-size: 44px;
+    margin: 12px 0 48px;
+    max-width: 720px;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  @media (max-width: 900px) {
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 600px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

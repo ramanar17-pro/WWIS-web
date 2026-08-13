@@ -1,0 +1,12 @@
+---
+import { toSafeJson } from '../lib/json-ld';
+
+interface Props {
+  data: Record<string, unknown>;
+}
+
+const { data } = Astro.props;
+const json = toSafeJson(data);
+---
+
+<script type="application/ld+json" set:html={json} is:inline />

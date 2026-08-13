@@ -1,0 +1,87 @@
+---
+interface Props {
+  programName: string;
+  gradeRange: string;
+  annualFee?: number;
+  feeRange?: string;
+  currency: string;
+  additionalFees: string[];
+  academicYear: string;
+}
+
+const { programName, gradeRange, annualFee, feeRange, currency, additionalFees, academicYear } =
+  Astro.props;
+
+const priceDisplay =
+  annualFee !== undefined
+    ? new Intl.NumberFormat('en-IN', { style: 'currency', currency }).format(annualFee)
+    : feeRange;
+---
+
+<article class="glass card">
+  <p class="mono-label">{gradeRange}</p>
+  <h3>{programName}</h3>
+  <p class="price">{priceDisplay}<span class="period">/ year, {academicYear}</span></p>
+  {
+    additionalFees.length > 0 && (
+      <ul class="fees">
+        {additionalFees.map((fee) => (
+          <li>{fee}</li>
+        ))}
+      </ul>
+    )
+  }
+</article>
+
+<style>
+  .card {
+    padding: 32px;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .card:hover {
+    transform: translateY(-6px);
+  }
+
+  .card h3 {
+    font-size: 20px;
+    margin: 8px 0 12px;
+  }
+
+  .price {
+    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    background: linear-gradient(90deg, var(--text), var(--crimson));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin: 0;
+  }
+
+  .period {
+    font-family: 'Instrument Sans', system-ui, sans-serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--fog);
+    -webkit-text-fill-color: var(--fog);
+    margin-left: 8px;
+  }
+
+  .fees {
+    margin: 16px 0 0;
+    padding: 0;
+    list-style: none;
+    color: var(--fog);
+    font-size: 14px;
+  }
+
+  .fees li {
+    padding: 4px 0;
+    border-top: 1px solid var(--glass-border);
+  }
+
+  .fees li:first-child {
+    border-top: none;
+  }
+</style>
