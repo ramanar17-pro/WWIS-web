@@ -17,7 +17,7 @@ const { title, description } = Astro.props;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=Instrument+Sans:wght@400;500;600&family=Fraunces:ital,wght@1,500&family=JetBrains+Mono:wght@400;500&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap"
       rel="stylesheet"
     />
     <slot name="head" />
@@ -29,15 +29,17 @@ const { title, description } = Astro.props;
 
 <style is:global>
   :root {
-    --void-navy: #0a1220;
-    --navy-2: #0f1b2e;
-    --crimson: #ff2d75;
-    --ember: #ff9d3d;
-    --cyan: #3de8ff;
-    --fog: #8b9ab0;
-    --text: #eef3fa;
-    --glass-fill: rgba(255, 255, 255, 0.04);
-    --glass-border: rgba(255, 255, 255, 0.12);
+    --white: #ffffff;
+    --pink: #ff5da2;
+    --purple: #9b5de5;
+    --purple-deep: #7c3aed;
+    --pink-soft: #ffe3f1;
+    --purple-soft: #f1e7fe;
+    --ink: #4b2e6b;
+    --fog: #9c87b8;
+    --text: #4b2e6b;
+    --glass-fill: linear-gradient(135deg, var(--pink-soft), var(--purple-soft));
+    --glass-border: rgba(155, 93, 229, 0.28);
   }
 
   * {
@@ -51,34 +53,36 @@ const { title, description } = Astro.props;
   }
 
   body {
-    background: var(--void-navy);
+    background: var(--white);
     color: var(--text);
-    font-family: 'Instrument Sans', system-ui, sans-serif;
+    font-family: 'Comic Sans MS', 'Comic Neue', cursive, sans-serif;
     line-height: 1.5;
   }
 
   h1,
   h2,
   h3 {
-    font-family: 'Space Grotesk', system-ui, sans-serif;
+    font-family: 'Comic Sans MS', 'Comic Neue', cursive, sans-serif;
     font-weight: 700;
-    line-height: 1.1;
+    line-height: 1.15;
     margin: 0;
+    color: var(--purple-deep);
   }
 
   .mono-label {
-    font-family: 'JetBrains Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 0.08em;
+    font-family: 'Comic Sans MS', 'Comic Neue', cursive, sans-serif;
+    font-size: 13px;
+    letter-spacing: 0.04em;
     text-transform: uppercase;
-    color: var(--fog);
+    color: var(--pink);
+    font-weight: 700;
   }
 
   .glass {
     background: var(--glass-fill);
-    border: 1px solid var(--glass-border);
-    border-radius: 20px;
-    backdrop-filter: blur(12px);
+    border: 2px solid var(--glass-border);
+    border-radius: 24px;
+    box-shadow: 0 6px 20px rgba(155, 93, 229, 0.15);
   }
 
   @media (prefers-reduced-motion: reduce) {
