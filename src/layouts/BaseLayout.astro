@@ -1,10 +1,14 @@
 ---
+import Nav from '../components/Nav.astro';
+
 interface Props {
   title: string;
   description: string;
+  currentNav?: string;
+  navVariant?: 'light' | 'on-gradient';
 }
 
-const { title, description } = Astro.props;
+const { title, description, currentNav, navVariant } = Astro.props;
 ---
 
 <!doctype html>
@@ -17,12 +21,13 @@ const { title, description } = Astro.props;
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Nunito+Sans:wght@400;600&display=swap"
       rel="stylesheet"
     />
     <slot name="head" />
   </head>
   <body>
+    <Nav current={currentNav} variant={navVariant} />
     <slot />
   </body>
 </html>
@@ -30,16 +35,15 @@ const { title, description } = Astro.props;
 <style is:global>
   :root {
     --white: #ffffff;
-    --pink: #ff5da2;
-    --purple: #9b5de5;
-    --purple-deep: #7c3aed;
-    --pink-soft: #ffe3f1;
-    --purple-soft: #f1e7fe;
-    --ink: #4b2e6b;
-    --fog: #9c87b8;
-    --text: #4b2e6b;
-    --glass-fill: linear-gradient(135deg, var(--pink-soft), var(--purple-soft));
-    --glass-border: rgba(155, 93, 229, 0.28);
+    --navy: #1b3b63;
+    --crimson: #a91e5c;
+    --orange: #f2941f;
+    --slate: #6b7a8f;
+    --crimson-soft: #fbe7ef;
+    --navy-soft: #eaf0f7;
+    --text: #1b3b63;
+    --glass-fill: var(--white);
+    --glass-border: rgba(27, 59, 99, 0.12);
   }
 
   * {
@@ -55,34 +59,34 @@ const { title, description } = Astro.props;
   body {
     background: var(--white);
     color: var(--text);
-    font-family: 'Comic Sans MS', 'Comic Neue', cursive, sans-serif;
-    line-height: 1.5;
+    font-family: 'Nunito Sans', system-ui, sans-serif;
+    line-height: 1.55;
   }
 
   h1,
   h2,
   h3 {
-    font-family: 'Comic Sans MS', 'Comic Neue', cursive, sans-serif;
+    font-family: 'Poppins', system-ui, sans-serif;
     font-weight: 700;
-    line-height: 1.15;
+    line-height: 1.2;
     margin: 0;
-    color: var(--purple-deep);
+    color: var(--navy);
   }
 
   .mono-label {
-    font-family: 'Comic Sans MS', 'Comic Neue', cursive, sans-serif;
+    font-family: 'Nunito Sans', system-ui, sans-serif;
     font-size: 13px;
-    letter-spacing: 0.04em;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
-    color: var(--pink);
+    color: var(--crimson);
     font-weight: 700;
   }
 
   .glass {
     background: var(--glass-fill);
-    border: 2px solid var(--glass-border);
-    border-radius: 24px;
-    box-shadow: 0 6px 20px rgba(155, 93, 229, 0.15);
+    border: 1px solid var(--glass-border);
+    border-radius: 20px;
+    box-shadow: 0 4px 16px rgba(27, 59, 99, 0.08);
   }
 
   @media (prefers-reduced-motion: reduce) {

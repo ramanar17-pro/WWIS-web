@@ -1,0 +1,41 @@
+---
+interface Props {
+  caption: string;
+}
+
+const { caption } = Astro.props;
+---
+
+<figure class="photo-placeholder">
+  <svg viewBox="0 0 400 260" role="img" aria-label={caption}>
+    <rect width="400" height="260" rx="20" fill="var(--navy-soft)" />
+    <circle cx="120" cy="150" r="34" fill="var(--crimson)" opacity="0.85" />
+    <rect x="98" y="182" width="44" height="58" rx="10" fill="var(--navy)" />
+    <circle cx="230" cy="130" r="30" fill="var(--orange)" opacity="0.85" />
+    <rect x="210" y="158" width="40" height="66" rx="10" fill="var(--navy)" />
+    <circle cx="300" cy="160" r="26" fill="var(--crimson)" opacity="0.6" />
+    <rect x="282" y="184" width="36" height="52" rx="9" fill="var(--navy)" opacity="0.85" />
+    <rect x="30" y="230" width="340" height="4" rx="2" fill="var(--crimson)" opacity="0.4" />
+  </svg>
+  <figcaption>{caption}</figcaption>
+</figure>
+
+<style>
+  .photo-placeholder {
+    margin: 0;
+  }
+
+  .photo-placeholder svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .photo-placeholder figcaption {
+    margin-top: 10px;
+    font-family: 'Nunito Sans', system-ui, sans-serif;
+    font-size: 12px;
+    color: var(--slate);
+    text-align: center;
+  }
+</style>

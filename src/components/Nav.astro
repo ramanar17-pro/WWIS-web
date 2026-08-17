@@ -1,0 +1,95 @@
+---
+interface Props {
+  current?: string;
+  variant?: 'light' | 'on-gradient';
+}
+
+const { current, variant = 'light' } = Astro.props;
+---
+
+<nav class:list={['site-nav', variant]}>
+  <div class="nav-inner">
+    <a href="/" class="brand">
+      {
+        variant === 'on-gradient' ? (
+          <span class="logo-chip">
+            <img src="/wwis-logo.webp" alt="Wisdom Wealth International School" />
+          </span>
+        ) : (
+          <img src="/wwis-logo.webp" alt="Wisdom Wealth International School" />
+        )
+      }
+    </a>
+    <div class="links">
+      <a href="/tuition" class={current === 'tuition' ? 'current' : ''}>Tuition &amp; Fees</a>
+    </div>
+  </div>
+</nav>
+
+<style>
+  .site-nav {
+    width: 100%;
+  }
+
+  .site-nav.light {
+    border-bottom: 1px solid var(--glass-border);
+  }
+
+  .site-nav.on-gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 5;
+  }
+
+  .nav-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 16px 24px;
+  }
+
+  .brand img {
+    height: 64px;
+    display: block;
+  }
+
+  .logo-chip {
+    display: inline-flex;
+    align-items: center;
+    background: var(--white);
+    border-radius: 999px;
+    padding: 6px 14px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  }
+
+  .logo-chip img {
+    height: 48px;
+    display: block;
+  }
+
+  .links a {
+    font-family: 'Nunito Sans', system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 15px;
+    color: var(--navy);
+    text-decoration: none;
+    margin-left: 28px;
+  }
+
+  .light .links a.current,
+  .light .links a:hover {
+    color: var(--crimson);
+  }
+
+  .on-gradient .links a {
+    color: var(--white);
+  }
+
+  .on-gradient .links a.current,
+  .on-gradient .links a:hover {
+    color: #ffe9b0;
+  }
+</style>

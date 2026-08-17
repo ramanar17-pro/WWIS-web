@@ -22,3 +22,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# personal screenshots folder, not part of the site
+Screenshots/
