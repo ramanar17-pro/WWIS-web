@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact & Book a Campus Visit — WWIS Trichy</title>
+<meta name="description" content="Contact Wisdom Wealth International School, Trichy, or book a campus visit.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Instrument+Sans:wght@400;500;600&family=Fraunces:ital,wght@1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/design-system.css">
+</head>
+<body>
+<div class="bg-mesh"></div>
+<div class="bg-grid"></div>
+<div class="orb orb-crimson"></div>
+<div class="orb orb-ember"></div>
+<div class="orb orb-cyan"></div>
+
+<header class="site-header">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-brand">
+      <span class="logo-chip"><img src="assets/wwis-logo.webp" alt="WWIS logo"></span>
+      <span>
+        <span class="nav-brand-name" style="display:block;">WWIS</span>
+        <span class="nav-brand-sub">Trichy · Cambridge</span>
+      </span>
+    </a>
+    <nav class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="admissions.html">Admissions</a>
+      <a href="academics.html">Academics</a>
+      <a href="tuition.html">Tuition</a>
+      <a href="staff.html">Staff</a>
+      <a href="student-life.html">Student Life</a>
+      <a href="about.html">About</a>
+      <a href="contact.html" class="active">Contact</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#visit-form" class="btn btn-primary btn-sm">Book a Visit</a>
+    </div>
+    <button class="nav-toggle" aria-label="Toggle menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+  <div class="nav-mobile-panel">
+    <a href="index.html">Home</a>
+    <a href="admissions.html">Admissions</a>
+    <a href="academics.html">Academics</a>
+    <a href="tuition.html">Tuition</a>
+    <a href="staff.html">Staff</a>
+    <a href="student-life.html">Student Life</a>
+    <a href="about.html">About</a>
+    <a href="contact.html" class="active">Contact</a>
+    <a href="#visit-form" class="btn btn-primary">Book a Visit</a>
+  </div>
+</header>
+
+<main>
+
+  <!-- PAGE HERO -->
+  <section class="hero section-tight">
+    <div class="container">
+      <div class="badge badge-info hero-fade-up"><span class="dot-live"></span> Tours available weekdays</div>
+      <h1 class="h1-hero mt-lg hero-fade-up" style="animation-delay:80ms; font-size:clamp(36px,5.5vw,60px);">Let's find a time<br>to show you around.</h1>
+      <p class="lede mt-lg hero-fade-up" style="animation-delay:160ms;">Reach the admissions team directly, or book a campus visit below.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT INFO + FORM -->
+  <section class="section-tight">
+    <div class="container grid-2">
+
+      <div>
+        <div class="eyebrow">Contact Details</div>
+        <h2 class="h2-section">Reach us directly</h2>
+        <div class="card mt-xl">
+          <div class="label-mono">Campus</div>
+          <p class="body-text mt-lg" style="color:var(--text);">Wisdom Wealth International School, Trichy, Tamil Nadu</p>
+        </div>
+        <div class="card mt-lg">
+          <div class="label-mono">Phone</div>
+          <p class="body-text mt-lg" style="color:var(--text);">+91 XXXXX XXXXX</p>
+        </div>
+        <div class="card mt-lg">
+          <div class="label-mono">Email</div>
+          <p class="body-text mt-lg" style="color:var(--text);">admissions@wwistrichy.com</p>
+        </div>
+        <div class="card mt-lg">
+          <div class="label-mono">Office Hours</div>
+          <p class="body-text mt-lg" style="color:var(--text);">Monday–Friday, 9:00 AM – 4:00 PM</p>
+        </div>
+
+        <div class="mt-lg" style="border-radius:var(--radius-card); overflow:hidden; border:1px solid var(--glass-border); aspect-ratio:16/9; background:linear-gradient(150deg, rgba(255,45,117,0.15), rgba(61,232,255,0.12)); display:flex; align-items:center; justify-content:center;">
+          <span class="label-mono">Campus map — embed pending</span>
+        </div>
+      </div>
+
+      <div>
+        <div class="eyebrow">Book a Visit</div>
+        <h2 class="h2-section">Schedule your tour</h2>
+        <form id="visit-form" class="card mt-xl" onsubmit="return false;">
+          <div class="form-row">
+            <div class="form-field">
+              <label for="parent-name">Parent / Guardian Name</label>
+              <input type="text" id="parent-name" placeholder="Full name">
+            </div>
+            <div class="form-field">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" placeholder="+91">
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="you@example.com">
+          </div>
+          <div class="form-row">
+            <div class="form-field">
+              <label for="programme">Programme of Interest</label>
+              <select id="programme">
+                <option>iPlay</option>
+                <option>iDiscover</option>
+                <option>iLead</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="preferred-date">Preferred Date</label>
+              <input type="date" id="preferred-date">
+            </div>
+          </div>
+          <div class="form-field">
+            <label for="message">Message (optional)</label>
+            <textarea id="message" placeholder="Anything you'd like us to know ahead of your visit"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%;">Request Campus Visit</button>
+          <p class="label-mono mt-lg">Visual mockup only — form is not wired to a backend.</p>
+        </form>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="logo-chip"><img src="assets/wwis-logo.webp" alt="WWIS logo"></span>
+        <p>Wisdom Wealth International School, Trichy — Cambridge-curriculum education across iPlay, iDiscover and iLead.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Explore</h4>
+        <a href="academics.html">Academics</a>
+        <a href="admissions.html">Admissions</a>
+        <a href="tuition.html">Tuition &amp; Fees</a>
+        <a href="student-life.html">Student Life</a>
+      </div>
+      <div class="footer-col">
+        <h4>School</h4>
+        <a href="about.html">About WWIS</a>
+        <a href="staff.html">Staff &amp; Faculty</a>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Visit</h4>
+        <a href="contact.html">Trichy, Tamil Nadu</a>
+        <a href="contact.html">admissions@wwistrichy.com</a>
+        <a href="contact.html">Book a campus visit →</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Wisdom Wealth International School. All rights reserved.</span>
+      <div class="footer-social">
+        <a href="#" aria-label="Facebook">f</a>
+        <a href="#" aria-label="Instagram">ig</a>
+        <a href="#" aria-label="LinkedIn">in</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
