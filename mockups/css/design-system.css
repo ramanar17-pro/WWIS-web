@@ -418,7 +418,7 @@ input, textarea, select { font-family: inherit; }
 }
 .nav-links a {
   color: #3D4A63;
-  padding: 8px 2px;
+  padding: 11px 2px;
   position: relative;
   transition: color 0.25s var(--ease-out);
 }
@@ -455,7 +455,7 @@ input, textarea, select { font-family: inherit; }
   border-top: 1px solid rgba(10, 18, 32, 0.08);
 }
 .nav-mobile-panel a {
-  padding: 12px 4px;
+  padding: 14px 4px;
   font-size: 15px;
   color: #3D4A63;
   border-bottom: 1px solid rgba(10, 18, 32, 0.06);
@@ -497,7 +497,7 @@ input, textarea, select { font-family: inherit; }
   display: block;
   color: var(--text);
   font-size: 14.5px;
-  padding: 6px 0;
+  padding: 11px 0;
   opacity: 0.85;
   transition: opacity 0.25s var(--ease-out), color 0.25s var(--ease-out);
 }
