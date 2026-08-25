@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mockups-two-self.vercel.app/sitemap.xml
