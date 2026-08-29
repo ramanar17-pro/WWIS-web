@@ -574,9 +574,48 @@ input, textarea, select { font-family: inherit; }
    "elevated object" feeling instead of a glowing ring motif. */
 .orbit-ring { display: none; }
 
+/* Hero visual (2026-08-27) — replaces the logo-plate panel with a real
+   campus photograph now that WWIS has supplied photography. Keeps the same
+   grid slot/behavior the logo-panel used (centered, mobile order:-1) so the
+   rest of the hero is untouched; only the object inside that slot changed
+   from "logo on white plate" to "photo in a rounded elevated frame". */
+.hero-visual {
+  position: relative;
+  width: 100%;
+  max-width: 560px;
+  margin: 0 auto;
+  aspect-ratio: 3 / 2;
+  border-radius: var(--radius-panel);
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(10,18,32,0.06), 0 28px 60px rgba(10,18,32,0.14);
+}
+.hero-visual img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 55%;
+  display: block;
+}
+.hero-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(10,18,32,0) 55%, rgba(10,18,32,0.16) 100%);
+  pointer-events: none;
+}
+.hero-visual-caption {
+  position: absolute;
+  left: var(--sp-sm);
+  bottom: var(--sp-sm);
+  z-index: 2;
+  color: #FFFFFF;
+}
+.hero-visual-caption .label-mono { color: rgba(255,255,255,0.9); }
+
 @media (max-width: 900px) {
   .hero-grid { grid-template-columns: 1fr; }
   .logo-panel { order: -1; max-width: 260px; }
+  .hero-visual { order: -1; max-width: 100%; aspect-ratio: 16 / 10; }
 }
 
 /* ---------- Stats strip ---------- */
@@ -626,8 +665,21 @@ input, textarea, select { font-family: inherit; }
   width: 100%;
   padding: var(--sp-sm);
   background: linear-gradient(0deg, rgba(10,18,32,0.82), transparent);
+  position: relative;
+  z-index: 1;
 }
 .gallery-tile .tile-caption .label-mono { color: rgba(255,255,255,0.9); }
+/* Real campus photography (2026-08-27) — fills the placeholder tile behind
+   the existing caption gradient; tiles without an <img> keep the quiet
+   gradient placeholder above unchanged. */
+.gallery-tile img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
 
 /* ---------- FAQ (native details/summary, no JS) ---------- */
 .faq-item {
