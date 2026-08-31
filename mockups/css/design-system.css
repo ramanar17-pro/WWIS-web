@@ -397,8 +397,8 @@ input, textarea, select { font-family: inherit; }
    into an extended horizontal rectangle to occupy the space the
    "WWIS / Trichy · Cambridge (CIE)" text used to fill, rather than just
    scaling the (square) logo mark itself larger. */
-.nav-brand .logo-chip { padding: 10px 40px; border-radius: 14px; }
-.nav-brand .logo-chip img { height: 40px; }
+.nav-brand .logo-chip { padding: 16px 56px; border-radius: 18px; }
+.nav-brand .logo-chip img { height: 64px; }
 .nav-links {
   display: flex;
   align-items: center;
